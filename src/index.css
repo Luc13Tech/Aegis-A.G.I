@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-aegis-bg text-aegis-navy font-sans antialiased;
+}
+
+.card {
+  @apply bg-white rounded-xl border border-aegis-border shadow-card p-6;
+}
+
+.btn-primary {
+  @apply bg-aegis-blue text-white font-medium px-4 py-2 rounded-lg
+    hover:bg-aegis-blueDark transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white text-aegis-navy font-medium px-4 py-2 rounded-lg border border-aegis-border
+    hover:bg-slate-50 transition-colors;
+}
+
+.input {
+  @apply w-full px-3 py-2 rounded-lg border border-aegis-border bg-white
+    focus:outline-none focus:ring-2 focus:ring-aegis-blue/40 focus:border-aegis-blue;
+}
