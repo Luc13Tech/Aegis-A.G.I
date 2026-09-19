@@ -10,9 +10,17 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('aegis_token');
     const storedUser = localStorage.getItem('aegis_user');
+
     if (token && storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch {
+        // Un ancien contenu invalide dans le stockage ne doit pas bloquer toute l'application.
+        localStorage.removeItem('aegis_token');
+        localStorage.removeItem('aegis_user');
+      }
     }
+
     setLoading(false);
   }, []);
 
